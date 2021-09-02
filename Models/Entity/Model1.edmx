@@ -1,0 +1,828 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Kutuphane_Bilgi_SistemiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CEZA">
+          <Key>
+            <PropertyRef Name="Ceza_ID" />
+          </Key>
+          <Property Name="Ceza_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ceza_Tutari" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CEZA_UYE">
+          <Key>
+            <PropertyRef Name="Ceza_ID" />
+            <PropertyRef Name="Uye_ID" />
+          </Key>
+          <Property Name="Ceza_ID" Type="int" Nullable="false" />
+          <Property Name="Uye_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Odeme_Durumu" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FAVORI">
+          <Key>
+            <PropertyRef Name="Favori_ID" />
+          </Key>
+          <Property Name="Favori_ID" Type="int" Nullable="false" />
+          <Property Name="Kitap_ID" Type="int" Nullable="false" />
+          <Property Name="Uye_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ISTEK">
+          <Key>
+            <PropertyRef Name="Istek_ID" />
+          </Key>
+          <Property Name="Istek_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Istek_Kitap_Adi" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Istek_Kitap_Yazari" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KITAP">
+          <Key>
+            <PropertyRef Name="Kitap_ID" />
+          </Key>
+          <Property Name="Kitap_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Kitap_Adi" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Kitap_Turu" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Kitap_Yazari" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Kitap_YayinEvi" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Kitap_TedarikciTuru" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Kitap_Alinabilirlik" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Tarih_ID" Type="int" Nullable="false" />
+          <Property Name="Uye_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KITAP_KUTUPHANE">
+          <Key>
+            <PropertyRef Name="Kıtap_ID" />
+            <PropertyRef Name="Kutuphane_ID" />
+          </Key>
+          <Property Name="Kıtap_ID" Type="int" Nullable="false" />
+          <Property Name="Kutuphane_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KUTUPHANE">
+          <Key>
+            <PropertyRef Name="Kutuphane_ID" />
+          </Key>
+          <Property Name="Kutuphane_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Kutuphane_Adi" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Kutuphane_Adres" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Kutuphane_Telefon" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Kutuphane_Websitesi" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Kutuphane_Email" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KUTUPHANE_ISTEK">
+          <Key>
+            <PropertyRef Name="Kutuphane_ID" />
+            <PropertyRef Name="Istek_ID" />
+          </Key>
+          <Property Name="Kutuphane_ID" Type="int" Nullable="false" />
+          <Property Name="Istek_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TARIH">
+          <Key>
+            <PropertyRef Name="Tarih_ID" />
+          </Key>
+          <Property Name="Tarih_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tarih_OduncTarihi" Type="date" Nullable="false" />
+          <Property Name="Tarih_TeslimTarihi" Type="date" Nullable="false" />
+          <Property Name="Tarih_TeslimAlinan" Type="date" Nullable="false" />
+          <Property Name="Tarih_Gecikme" Type="int" StoreGeneratedPattern="Computed" />
+          <Property Name="Ceza_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="UYE">
+          <Key>
+            <PropertyRef Name="Uye_ID" />
+          </Key>
+          <Property Name="Uye_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Uye_Adi" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Uye_Soyadi" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Uye_Email" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Uye_Password" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Uye_Telefon" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Uye_Adres" Type="nvarchar(max)" />
+          <Property Name="Uye_Egitim" Type="nvarchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="UYE_ISTEK">
+          <Key>
+            <PropertyRef Name="Uye_ID" />
+            <PropertyRef Name="Istek_ID" />
+          </Key>
+          <Property Name="Uye_ID" Type="int" Nullable="false" />
+          <Property Name="Istek_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="YORUM">
+          <Key>
+            <PropertyRef Name="Yorum_ID" />
+          </Key>
+          <Property Name="Yorum_ID" Type="int" Nullable="false" />
+          <Property Name="Kitap_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Uye_ID" Type="int" Nullable="false" />
+          <Property Name="Yorum_Icerik" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Yorum_Tarih" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CEZA_UYE_CEZA">
+          <End Role="CEZA" Type="Self.CEZA" Multiplicity="1" />
+          <End Role="CEZA_UYE" Type="Self.CEZA_UYE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CEZA">
+              <PropertyRef Name="Ceza_ID" />
+            </Principal>
+            <Dependent Role="CEZA_UYE">
+              <PropertyRef Name="Ceza_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CEZA_UYE_UYE">
+          <End Role="UYE" Type="Self.UYE" Multiplicity="1" />
+          <End Role="CEZA_UYE" Type="Self.CEZA_UYE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UYE">
+              <PropertyRef Name="Uye_ID" />
+            </Principal>
+            <Dependent Role="CEZA_UYE">
+              <PropertyRef Name="Uye_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FAVORI_KITAP">
+          <End Role="KITAP" Type="Self.KITAP" Multiplicity="1" />
+          <End Role="FAVORI" Type="Self.FAVORI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KITAP">
+              <PropertyRef Name="Kitap_ID" />
+            </Principal>
+            <Dependent Role="FAVORI">
+              <PropertyRef Name="Kitap_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FAVORI_UYE">
+          <End Role="UYE" Type="Self.UYE" Multiplicity="1" />
+          <End Role="FAVORI" Type="Self.FAVORI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UYE">
+              <PropertyRef Name="Uye_ID" />
+            </Principal>
+            <Dependent Role="FAVORI">
+              <PropertyRef Name="Uye_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KITAP_KUTUPHANE_KITAP">
+          <End Role="KITAP" Type="Self.KITAP" Multiplicity="1" />
+          <End Role="KITAP_KUTUPHANE" Type="Self.KITAP_KUTUPHANE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KITAP">
+              <PropertyRef Name="Kitap_ID" />
+            </Principal>
+            <Dependent Role="KITAP_KUTUPHANE">
+              <PropertyRef Name="Kıtap_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KITAP_KUTUPHANE_KUTUPHANE">
+          <End Role="KUTUPHANE" Type="Self.KUTUPHANE" Multiplicity="1" />
+          <End Role="KITAP_KUTUPHANE" Type="Self.KITAP_KUTUPHANE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KUTUPHANE">
+              <PropertyRef Name="Kutuphane_ID" />
+            </Principal>
+            <Dependent Role="KITAP_KUTUPHANE">
+              <PropertyRef Name="Kutuphane_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KITAP_TARIH">
+          <End Role="TARIH" Type="Self.TARIH" Multiplicity="1" />
+          <End Role="KITAP" Type="Self.KITAP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TARIH">
+              <PropertyRef Name="Tarih_ID" />
+            </Principal>
+            <Dependent Role="KITAP">
+              <PropertyRef Name="Tarih_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KITAP_UYE">
+          <End Role="UYE" Type="Self.UYE" Multiplicity="1" />
+          <End Role="KITAP" Type="Self.KITAP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UYE">
+              <PropertyRef Name="Uye_ID" />
+            </Principal>
+            <Dependent Role="KITAP">
+              <PropertyRef Name="Uye_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KUTUPHANE_ISTEK_ISTEK">
+          <End Role="ISTEK" Type="Self.ISTEK" Multiplicity="1" />
+          <End Role="KUTUPHANE_ISTEK" Type="Self.KUTUPHANE_ISTEK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ISTEK">
+              <PropertyRef Name="Istek_ID" />
+            </Principal>
+            <Dependent Role="KUTUPHANE_ISTEK">
+              <PropertyRef Name="Istek_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KUTUPHANE_ISTEK_KUTUPHANE">
+          <End Role="KUTUPHANE" Type="Self.KUTUPHANE" Multiplicity="1" />
+          <End Role="KUTUPHANE_ISTEK" Type="Self.KUTUPHANE_ISTEK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KUTUPHANE">
+              <PropertyRef Name="Kutuphane_ID" />
+            </Principal>
+            <Dependent Role="KUTUPHANE_ISTEK">
+              <PropertyRef Name="Kutuphane_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TARIH_CEZA">
+          <End Role="CEZA" Type="Self.CEZA" Multiplicity="0..1" />
+          <End Role="TARIH" Type="Self.TARIH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CEZA">
+              <PropertyRef Name="Ceza_ID" />
+            </Principal>
+            <Dependent Role="TARIH">
+              <PropertyRef Name="Ceza_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UYE_ISTEK_ISTEK">
+          <End Role="ISTEK" Type="Self.ISTEK" Multiplicity="1" />
+          <End Role="UYE_ISTEK" Type="Self.UYE_ISTEK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ISTEK">
+              <PropertyRef Name="Istek_ID" />
+            </Principal>
+            <Dependent Role="UYE_ISTEK">
+              <PropertyRef Name="Istek_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UYE_ISTEK_UYE">
+          <End Role="UYE" Type="Self.UYE" Multiplicity="1" />
+          <End Role="UYE_ISTEK" Type="Self.UYE_ISTEK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UYE">
+              <PropertyRef Name="Uye_ID" />
+            </Principal>
+            <Dependent Role="UYE_ISTEK">
+              <PropertyRef Name="Uye_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_YORUM_KITAP">
+          <End Role="KITAP" Type="Self.KITAP" Multiplicity="1" />
+          <End Role="YORUM" Type="Self.YORUM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KITAP">
+              <PropertyRef Name="Kitap_ID" />
+            </Principal>
+            <Dependent Role="YORUM">
+              <PropertyRef Name="Kitap_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_YORUM_UYE">
+          <End Role="UYE" Type="Self.UYE" Multiplicity="1" />
+          <End Role="YORUM" Type="Self.YORUM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UYE">
+              <PropertyRef Name="Uye_ID" />
+            </Principal>
+            <Dependent Role="YORUM">
+              <PropertyRef Name="Uye_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Kutuphane_Bilgi_SistemiModelStoreContainer">
+          <EntitySet Name="CEZA" EntityType="Self.CEZA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CEZA_UYE" EntityType="Self.CEZA_UYE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FAVORI" EntityType="Self.FAVORI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ISTEK" EntityType="Self.ISTEK" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KITAP" EntityType="Self.KITAP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KITAP_KUTUPHANE" EntityType="Self.KITAP_KUTUPHANE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KUTUPHANE" EntityType="Self.KUTUPHANE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KUTUPHANE_ISTEK" EntityType="Self.KUTUPHANE_ISTEK" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TARIH" EntityType="Self.TARIH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UYE" EntityType="Self.UYE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UYE_ISTEK" EntityType="Self.UYE_ISTEK" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="YORUM" EntityType="Self.YORUM" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CEZA_UYE_CEZA" Association="Self.FK_CEZA_UYE_CEZA">
+            <End Role="CEZA" EntitySet="CEZA" />
+            <End Role="CEZA_UYE" EntitySet="CEZA_UYE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CEZA_UYE_UYE" Association="Self.FK_CEZA_UYE_UYE">
+            <End Role="UYE" EntitySet="UYE" />
+            <End Role="CEZA_UYE" EntitySet="CEZA_UYE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FAVORI_KITAP" Association="Self.FK_FAVORI_KITAP">
+            <End Role="KITAP" EntitySet="KITAP" />
+            <End Role="FAVORI" EntitySet="FAVORI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FAVORI_UYE" Association="Self.FK_FAVORI_UYE">
+            <End Role="UYE" EntitySet="UYE" />
+            <End Role="FAVORI" EntitySet="FAVORI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KITAP_KUTUPHANE_KITAP" Association="Self.FK_KITAP_KUTUPHANE_KITAP">
+            <End Role="KITAP" EntitySet="KITAP" />
+            <End Role="KITAP_KUTUPHANE" EntitySet="KITAP_KUTUPHANE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KITAP_KUTUPHANE_KUTUPHANE" Association="Self.FK_KITAP_KUTUPHANE_KUTUPHANE">
+            <End Role="KUTUPHANE" EntitySet="KUTUPHANE" />
+            <End Role="KITAP_KUTUPHANE" EntitySet="KITAP_KUTUPHANE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KITAP_TARIH" Association="Self.FK_KITAP_TARIH">
+            <End Role="TARIH" EntitySet="TARIH" />
+            <End Role="KITAP" EntitySet="KITAP" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KITAP_UYE" Association="Self.FK_KITAP_UYE">
+            <End Role="UYE" EntitySet="UYE" />
+            <End Role="KITAP" EntitySet="KITAP" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KUTUPHANE_ISTEK_ISTEK" Association="Self.FK_KUTUPHANE_ISTEK_ISTEK">
+            <End Role="ISTEK" EntitySet="ISTEK" />
+            <End Role="KUTUPHANE_ISTEK" EntitySet="KUTUPHANE_ISTEK" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KUTUPHANE_ISTEK_KUTUPHANE" Association="Self.FK_KUTUPHANE_ISTEK_KUTUPHANE">
+            <End Role="KUTUPHANE" EntitySet="KUTUPHANE" />
+            <End Role="KUTUPHANE_ISTEK" EntitySet="KUTUPHANE_ISTEK" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TARIH_CEZA" Association="Self.FK_TARIH_CEZA">
+            <End Role="CEZA" EntitySet="CEZA" />
+            <End Role="TARIH" EntitySet="TARIH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UYE_ISTEK_ISTEK" Association="Self.FK_UYE_ISTEK_ISTEK">
+            <End Role="ISTEK" EntitySet="ISTEK" />
+            <End Role="UYE_ISTEK" EntitySet="UYE_ISTEK" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UYE_ISTEK_UYE" Association="Self.FK_UYE_ISTEK_UYE">
+            <End Role="UYE" EntitySet="UYE" />
+            <End Role="UYE_ISTEK" EntitySet="UYE_ISTEK" />
+          </AssociationSet>
+          <AssociationSet Name="FK_YORUM_KITAP" Association="Self.FK_YORUM_KITAP">
+            <End Role="KITAP" EntitySet="KITAP" />
+            <End Role="YORUM" EntitySet="YORUM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_YORUM_UYE" Association="Self.FK_YORUM_UYE">
+            <End Role="UYE" EntitySet="UYE" />
+            <End Role="YORUM" EntitySet="YORUM" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Kutuphane_Bilgi_SistemiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CEZA">
+          <Key>
+            <PropertyRef Name="Ceza_ID" />
+          </Key>
+          <Property Name="Ceza_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ceza_Tutari" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="CEZA_UYE" Relationship="Self.FK_CEZA_UYE_CEZA" FromRole="CEZA" ToRole="CEZA_UYE" />
+          <NavigationProperty Name="TARIH" Relationship="Self.FK_TARIH_CEZA" FromRole="CEZA" ToRole="TARIH" />
+        </EntityType>
+        <EntityType Name="CEZA_UYE">
+          <Key>
+            <PropertyRef Name="Ceza_ID" />
+            <PropertyRef Name="Uye_ID" />
+          </Key>
+          <Property Name="Ceza_ID" Type="Int32" Nullable="false" />
+          <Property Name="Uye_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Odeme_Durumu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="CEZA" Relationship="Self.FK_CEZA_UYE_CEZA" FromRole="CEZA_UYE" ToRole="CEZA" />
+          <NavigationProperty Name="UYE" Relationship="Self.FK_CEZA_UYE_UYE" FromRole="CEZA_UYE" ToRole="UYE" />
+        </EntityType>
+        <EntityType Name="FAVORI">
+          <Key>
+            <PropertyRef Name="Favori_ID" />
+          </Key>
+          <Property Name="Favori_ID" Type="Int32" Nullable="false" />
+          <Property Name="Kitap_ID" Type="Int32" Nullable="false" />
+          <Property Name="Uye_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="KITAP" Relationship="Self.FK_FAVORI_KITAP" FromRole="FAVORI" ToRole="KITAP" />
+          <NavigationProperty Name="UYE" Relationship="Self.FK_FAVORI_UYE" FromRole="FAVORI" ToRole="UYE" />
+        </EntityType>
+        <EntityType Name="ISTEK">
+          <Key>
+            <PropertyRef Name="Istek_ID" />
+          </Key>
+          <Property Name="Istek_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Istek_Kitap_Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Istek_Kitap_Yazari" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="KUTUPHANE" Relationship="Self.KUTUPHANE_ISTEK" FromRole="ISTEK" ToRole="KUTUPHANE" />
+          <NavigationProperty Name="UYE" Relationship="Self.UYE_ISTEK" FromRole="ISTEK" ToRole="UYE" />
+        </EntityType>
+        <EntityType Name="KITAP">
+          <Key>
+            <PropertyRef Name="Kitap_ID" />
+          </Key>
+          <Property Name="Kitap_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Kitap_Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Kitap_Turu" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Kitap_Yazari" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Kitap_YayinEvi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Kitap_TedarikciTuru" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Kitap_Alinabilirlik" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Tarih_ID" Type="Int32" Nullable="false" />
+          <Property Name="Uye_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="FAVORI" Relationship="Self.FK_FAVORI_KITAP" FromRole="KITAP" ToRole="FAVORI" />
+          <NavigationProperty Name="TARIH" Relationship="Self.FK_KITAP_TARIH" FromRole="KITAP" ToRole="TARIH" />
+          <NavigationProperty Name="UYE" Relationship="Self.FK_KITAP_UYE" FromRole="KITAP" ToRole="UYE" />
+          <NavigationProperty Name="YORUM" Relationship="Self.FK_YORUM_KITAP" FromRole="KITAP" ToRole="YORUM" />
+          <NavigationProperty Name="KUTUPHANE" Relationship="Self.KITAP_KUTUPHANE" FromRole="KITAP" ToRole="KUTUPHANE" />
+        </EntityType>
+        <EntityType Name="KUTUPHANE">
+          <Key>
+            <PropertyRef Name="Kutuphane_ID" />
+          </Key>
+          <Property Name="Kutuphane_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Kutuphane_Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Kutuphane_Adres" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Kutuphane_Telefon" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Kutuphane_Websitesi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Kutuphane_Email" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="KITAP" Relationship="Self.KITAP_KUTUPHANE" FromRole="KUTUPHANE" ToRole="KITAP" />
+          <NavigationProperty Name="ISTEK" Relationship="Self.KUTUPHANE_ISTEK" FromRole="KUTUPHANE" ToRole="ISTEK" />
+        </EntityType>
+        <EntityType Name="TARIH">
+          <Key>
+            <PropertyRef Name="Tarih_ID" />
+          </Key>
+          <Property Name="Tarih_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tarih_OduncTarihi" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Tarih_TeslimTarihi" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Tarih_TeslimAlinan" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Tarih_Gecikme" Type="Int32" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="Ceza_ID" Type="Int32" />
+          <NavigationProperty Name="CEZA" Relationship="Self.FK_TARIH_CEZA" FromRole="TARIH" ToRole="CEZA" />
+          <NavigationProperty Name="KITAP" Relationship="Self.FK_KITAP_TARIH" FromRole="TARIH" ToRole="KITAP" />
+        </EntityType>
+        <EntityType Name="UYE">
+          <Key>
+            <PropertyRef Name="Uye_ID" />
+          </Key>
+          <Property Name="Uye_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Uye_Adi" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Uye_Soyadi" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Uye_Email" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Uye_Password" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Uye_Telefon" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Uye_Adres" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Uye_Egitim" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CEZA_UYE" Relationship="Self.FK_CEZA_UYE_UYE" FromRole="UYE" ToRole="CEZA_UYE" />
+          <NavigationProperty Name="FAVORI" Relationship="Self.FK_FAVORI_UYE" FromRole="UYE" ToRole="FAVORI" />
+          <NavigationProperty Name="KITAP" Relationship="Self.FK_KITAP_UYE" FromRole="UYE" ToRole="KITAP" />
+          <NavigationProperty Name="YORUM" Relationship="Self.FK_YORUM_UYE" FromRole="UYE" ToRole="YORUM" />
+          <NavigationProperty Name="ISTEK" Relationship="Self.UYE_ISTEK" FromRole="UYE" ToRole="ISTEK" />
+        </EntityType>
+        <EntityType Name="YORUM">
+          <Key>
+            <PropertyRef Name="Yorum_ID" />
+          </Key>
+          <Property Name="Yorum_ID" Type="Int32" Nullable="false" />
+          <Property Name="Kitap_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Uye_ID" Type="Int32" Nullable="false" />
+          <Property Name="Yorum_Icerik" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Yorum_Tarih" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="KITAP" Relationship="Self.FK_YORUM_KITAP" FromRole="YORUM" ToRole="KITAP" />
+          <NavigationProperty Name="UYE" Relationship="Self.FK_YORUM_UYE" FromRole="YORUM" ToRole="UYE" />
+        </EntityType>
+        <Association Name="FK_CEZA_UYE_CEZA">
+          <End Role="CEZA" Type="Self.CEZA" Multiplicity="1" />
+          <End Role="CEZA_UYE" Type="Self.CEZA_UYE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CEZA">
+              <PropertyRef Name="Ceza_ID" />
+            </Principal>
+            <Dependent Role="CEZA_UYE">
+              <PropertyRef Name="Ceza_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TARIH_CEZA">
+          <End Role="CEZA" Type="Self.CEZA" Multiplicity="0..1" />
+          <End Role="TARIH" Type="Self.TARIH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CEZA">
+              <PropertyRef Name="Ceza_ID" />
+            </Principal>
+            <Dependent Role="TARIH">
+              <PropertyRef Name="Ceza_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CEZA_UYE_UYE">
+          <End Role="UYE" Type="Self.UYE" Multiplicity="1" />
+          <End Role="CEZA_UYE" Type="Self.CEZA_UYE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UYE">
+              <PropertyRef Name="Uye_ID" />
+            </Principal>
+            <Dependent Role="CEZA_UYE">
+              <PropertyRef Name="Uye_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FAVORI_KITAP">
+          <End Role="KITAP" Type="Self.KITAP" Multiplicity="1" />
+          <End Role="FAVORI" Type="Self.FAVORI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KITAP">
+              <PropertyRef Name="Kitap_ID" />
+            </Principal>
+            <Dependent Role="FAVORI">
+              <PropertyRef Name="Kitap_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FAVORI_UYE">
+          <End Role="UYE" Type="Self.UYE" Multiplicity="1" />
+          <End Role="FAVORI" Type="Self.FAVORI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UYE">
+              <PropertyRef Name="Uye_ID" />
+            </Principal>
+            <Dependent Role="FAVORI">
+              <PropertyRef Name="Uye_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KITAP_TARIH">
+          <End Role="TARIH" Type="Self.TARIH" Multiplicity="1" />
+          <End Role="KITAP" Type="Self.KITAP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TARIH">
+              <PropertyRef Name="Tarih_ID" />
+            </Principal>
+            <Dependent Role="KITAP">
+              <PropertyRef Name="Tarih_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KITAP_UYE">
+          <End Role="UYE" Type="Self.UYE" Multiplicity="1" />
+          <End Role="KITAP" Type="Self.KITAP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UYE">
+              <PropertyRef Name="Uye_ID" />
+            </Principal>
+            <Dependent Role="KITAP">
+              <PropertyRef Name="Uye_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_YORUM_KITAP">
+          <End Role="KITAP" Type="Self.KITAP" Multiplicity="1" />
+          <End Role="YORUM" Type="Self.YORUM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KITAP">
+              <PropertyRef Name="Kitap_ID" />
+            </Principal>
+            <Dependent Role="YORUM">
+              <PropertyRef Name="Kitap_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_YORUM_UYE">
+          <End Role="UYE" Type="Self.UYE" Multiplicity="1" />
+          <End Role="YORUM" Type="Self.YORUM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UYE">
+              <PropertyRef Name="Uye_ID" />
+            </Principal>
+            <Dependent Role="YORUM">
+              <PropertyRef Name="Uye_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="KITAP_KUTUPHANE">
+          <End Role="KITAP" Type="Self.KITAP" Multiplicity="*" />
+          <End Role="KUTUPHANE" Type="Self.KUTUPHANE" Multiplicity="*" />
+        </Association>
+        <Association Name="KUTUPHANE_ISTEK">
+          <End Role="ISTEK" Type="Self.ISTEK" Multiplicity="*" />
+          <End Role="KUTUPHANE" Type="Self.KUTUPHANE" Multiplicity="*" />
+        </Association>
+        <Association Name="UYE_ISTEK">
+          <End Role="ISTEK" Type="Self.ISTEK" Multiplicity="*" />
+          <End Role="UYE" Type="Self.UYE" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="Kutuphane_Bilgi_SistemiEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CEZA" EntityType="Self.CEZA" />
+          <EntitySet Name="CEZA_UYE" EntityType="Self.CEZA_UYE" />
+          <EntitySet Name="FAVORI" EntityType="Self.FAVORI" />
+          <EntitySet Name="ISTEK" EntityType="Self.ISTEK" />
+          <EntitySet Name="KITAP" EntityType="Self.KITAP" />
+          <EntitySet Name="KUTUPHANE" EntityType="Self.KUTUPHANE" />
+          <EntitySet Name="TARIH" EntityType="Self.TARIH" />
+          <EntitySet Name="UYE" EntityType="Self.UYE" />
+          <EntitySet Name="YORUM" EntityType="Self.YORUM" />
+          <AssociationSet Name="FK_CEZA_UYE_CEZA" Association="Self.FK_CEZA_UYE_CEZA">
+            <End Role="CEZA" EntitySet="CEZA" />
+            <End Role="CEZA_UYE" EntitySet="CEZA_UYE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TARIH_CEZA" Association="Self.FK_TARIH_CEZA">
+            <End Role="CEZA" EntitySet="CEZA" />
+            <End Role="TARIH" EntitySet="TARIH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CEZA_UYE_UYE" Association="Self.FK_CEZA_UYE_UYE">
+            <End Role="UYE" EntitySet="UYE" />
+            <End Role="CEZA_UYE" EntitySet="CEZA_UYE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FAVORI_KITAP" Association="Self.FK_FAVORI_KITAP">
+            <End Role="KITAP" EntitySet="KITAP" />
+            <End Role="FAVORI" EntitySet="FAVORI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FAVORI_UYE" Association="Self.FK_FAVORI_UYE">
+            <End Role="UYE" EntitySet="UYE" />
+            <End Role="FAVORI" EntitySet="FAVORI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KITAP_TARIH" Association="Self.FK_KITAP_TARIH">
+            <End Role="TARIH" EntitySet="TARIH" />
+            <End Role="KITAP" EntitySet="KITAP" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KITAP_UYE" Association="Self.FK_KITAP_UYE">
+            <End Role="UYE" EntitySet="UYE" />
+            <End Role="KITAP" EntitySet="KITAP" />
+          </AssociationSet>
+          <AssociationSet Name="FK_YORUM_KITAP" Association="Self.FK_YORUM_KITAP">
+            <End Role="KITAP" EntitySet="KITAP" />
+            <End Role="YORUM" EntitySet="YORUM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_YORUM_UYE" Association="Self.FK_YORUM_UYE">
+            <End Role="UYE" EntitySet="UYE" />
+            <End Role="YORUM" EntitySet="YORUM" />
+          </AssociationSet>
+          <AssociationSet Name="KITAP_KUTUPHANE" Association="Self.KITAP_KUTUPHANE">
+            <End Role="KITAP" EntitySet="KITAP" />
+            <End Role="KUTUPHANE" EntitySet="KUTUPHANE" />
+          </AssociationSet>
+          <AssociationSet Name="KUTUPHANE_ISTEK" Association="Self.KUTUPHANE_ISTEK">
+            <End Role="ISTEK" EntitySet="ISTEK" />
+            <End Role="KUTUPHANE" EntitySet="KUTUPHANE" />
+          </AssociationSet>
+          <AssociationSet Name="UYE_ISTEK" Association="Self.UYE_ISTEK">
+            <End Role="ISTEK" EntitySet="ISTEK" />
+            <End Role="UYE" EntitySet="UYE" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Kutuphane_Bilgi_SistemiModelStoreContainer" CdmEntityContainer="Kutuphane_Bilgi_SistemiEntities">
+          <EntitySetMapping Name="CEZA">
+            <EntityTypeMapping TypeName="Kutuphane_Bilgi_SistemiModel.CEZA">
+              <MappingFragment StoreEntitySet="CEZA">
+                <ScalarProperty Name="Ceza_ID" ColumnName="Ceza_ID" />
+                <ScalarProperty Name="Ceza_Tutari" ColumnName="Ceza_Tutari" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CEZA_UYE">
+            <EntityTypeMapping TypeName="Kutuphane_Bilgi_SistemiModel.CEZA_UYE">
+              <MappingFragment StoreEntitySet="CEZA_UYE">
+                <ScalarProperty Name="Ceza_ID" ColumnName="Ceza_ID" />
+                <ScalarProperty Name="Uye_ID" ColumnName="Uye_ID" />
+                <ScalarProperty Name="Odeme_Durumu" ColumnName="Odeme_Durumu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FAVORI">
+            <EntityTypeMapping TypeName="Kutuphane_Bilgi_SistemiModel.FAVORI">
+              <MappingFragment StoreEntitySet="FAVORI">
+                <ScalarProperty Name="Favori_ID" ColumnName="Favori_ID" />
+                <ScalarProperty Name="Kitap_ID" ColumnName="Kitap_ID" />
+                <ScalarProperty Name="Uye_ID" ColumnName="Uye_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ISTEK">
+            <EntityTypeMapping TypeName="Kutuphane_Bilgi_SistemiModel.ISTEK">
+              <MappingFragment StoreEntitySet="ISTEK">
+                <ScalarProperty Name="Istek_ID" ColumnName="Istek_ID" />
+                <ScalarProperty Name="Istek_Kitap_Adi" ColumnName="Istek_Kitap_Adi" />
+                <ScalarProperty Name="Istek_Kitap_Yazari" ColumnName="Istek_Kitap_Yazari" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KITAP">
+            <EntityTypeMapping TypeName="Kutuphane_Bilgi_SistemiModel.KITAP">
+              <MappingFragment StoreEntitySet="KITAP">
+                <ScalarProperty Name="Kitap_ID" ColumnName="Kitap_ID" />
+                <ScalarProperty Name="Kitap_Adi" ColumnName="Kitap_Adi" />
+                <ScalarProperty Name="Kitap_Turu" ColumnName="Kitap_Turu" />
+                <ScalarProperty Name="Kitap_Yazari" ColumnName="Kitap_Yazari" />
+                <ScalarProperty Name="Kitap_YayinEvi" ColumnName="Kitap_YayinEvi" />
+                <ScalarProperty Name="Kitap_TedarikciTuru" ColumnName="Kitap_TedarikciTuru" />
+                <ScalarProperty Name="Kitap_Alinabilirlik" ColumnName="Kitap_Alinabilirlik" />
+                <ScalarProperty Name="Tarih_ID" ColumnName="Tarih_ID" />
+                <ScalarProperty Name="Uye_ID" ColumnName="Uye_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KUTUPHANE">
+            <EntityTypeMapping TypeName="Kutuphane_Bilgi_SistemiModel.KUTUPHANE">
+              <MappingFragment StoreEntitySet="KUTUPHANE">
+                <ScalarProperty Name="Kutuphane_ID" ColumnName="Kutuphane_ID" />
+                <ScalarProperty Name="Kutuphane_Adi" ColumnName="Kutuphane_Adi" />
+                <ScalarProperty Name="Kutuphane_Adres" ColumnName="Kutuphane_Adres" />
+                <ScalarProperty Name="Kutuphane_Telefon" ColumnName="Kutuphane_Telefon" />
+                <ScalarProperty Name="Kutuphane_Websitesi" ColumnName="Kutuphane_Websitesi" />
+                <ScalarProperty Name="Kutuphane_Email" ColumnName="Kutuphane_Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TARIH">
+            <EntityTypeMapping TypeName="Kutuphane_Bilgi_SistemiModel.TARIH">
+              <MappingFragment StoreEntitySet="TARIH">
+                <ScalarProperty Name="Tarih_ID" ColumnName="Tarih_ID" />
+                <ScalarProperty Name="Tarih_OduncTarihi" ColumnName="Tarih_OduncTarihi" />
+                <ScalarProperty Name="Tarih_TeslimTarihi" ColumnName="Tarih_TeslimTarihi" />
+                <ScalarProperty Name="Tarih_TeslimAlinan" ColumnName="Tarih_TeslimAlinan" />
+                <ScalarProperty Name="Tarih_Gecikme" ColumnName="Tarih_Gecikme" />
+                <ScalarProperty Name="Ceza_ID" ColumnName="Ceza_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UYE">
+            <EntityTypeMapping TypeName="Kutuphane_Bilgi_SistemiModel.UYE">
+              <MappingFragment StoreEntitySet="UYE">
+                <ScalarProperty Name="Uye_ID" ColumnName="Uye_ID" />
+                <ScalarProperty Name="Uye_Adi" ColumnName="Uye_Adi" />
+                <ScalarProperty Name="Uye_Soyadi" ColumnName="Uye_Soyadi" />
+                <ScalarProperty Name="Uye_Email" ColumnName="Uye_Email" />
+                <ScalarProperty Name="Uye_Password" ColumnName="Uye_Password" />
+                <ScalarProperty Name="Uye_Telefon" ColumnName="Uye_Telefon" />
+                <ScalarProperty Name="Uye_Adres" ColumnName="Uye_Adres" />
+                <ScalarProperty Name="Uye_Egitim" ColumnName="Uye_Egitim" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YORUM">
+            <EntityTypeMapping TypeName="Kutuphane_Bilgi_SistemiModel.YORUM">
+              <MappingFragment StoreEntitySet="YORUM">
+                <ScalarProperty Name="Yorum_ID" ColumnName="Yorum_ID" />
+                <ScalarProperty Name="Kitap_ID" ColumnName="Kitap_ID" />
+                <ScalarProperty Name="Uye_ID" ColumnName="Uye_ID" />
+                <ScalarProperty Name="Yorum_Icerik" ColumnName="Yorum_Icerik" />
+                <ScalarProperty Name="Yorum_Tarih" ColumnName="Yorum_Tarih" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="KITAP_KUTUPHANE" TypeName="Kutuphane_Bilgi_SistemiModel.KITAP_KUTUPHANE" StoreEntitySet="KITAP_KUTUPHANE">
+            <EndProperty Name="KITAP">
+              <ScalarProperty Name="Kitap_ID" ColumnName="Kıtap_ID" />
+            </EndProperty>
+            <EndProperty Name="KUTUPHANE">
+              <ScalarProperty Name="Kutuphane_ID" ColumnName="Kutuphane_ID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="KUTUPHANE_ISTEK" TypeName="Kutuphane_Bilgi_SistemiModel.KUTUPHANE_ISTEK" StoreEntitySet="KUTUPHANE_ISTEK">
+            <EndProperty Name="ISTEK">
+              <ScalarProperty Name="Istek_ID" ColumnName="Istek_ID" />
+            </EndProperty>
+            <EndProperty Name="KUTUPHANE">
+              <ScalarProperty Name="Kutuphane_ID" ColumnName="Kutuphane_ID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="UYE_ISTEK" TypeName="Kutuphane_Bilgi_SistemiModel.UYE_ISTEK" StoreEntitySet="UYE_ISTEK">
+            <EndProperty Name="ISTEK">
+              <ScalarProperty Name="Istek_ID" ColumnName="Istek_ID" />
+            </EndProperty>
+            <EndProperty Name="UYE">
+              <ScalarProperty Name="Uye_ID" ColumnName="Uye_ID" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

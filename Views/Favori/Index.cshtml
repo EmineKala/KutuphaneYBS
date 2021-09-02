@@ -1,0 +1,30 @@
+﻿@using KutuphaneBS.Models.Entity
+@model List<FAVORI>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Favoriler</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Favori Kodu</th>
+        <th>Kitap Kodu</th>
+        <th>Üye Kodu</th>
+        <th>Sil</th>
+        
+    </tr>
+    @foreach (var fav in Model)
+    {
+        <tr>
+            <td>@fav.Kitap_ID</td>
+            <td>@fav.Uye_ID</td>
+            <td><a href="/Favori/FavoriSil/@fav.Favori_ID" class="btn btn-danger">Sil</a></td>
+            
+
+        </tr>
+    }
+
+</table>
+<a href="/Favori/FavoriEkle/" class="btn btn-primary">Yeni Favori Ekle</a>

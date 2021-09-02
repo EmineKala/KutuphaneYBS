@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c967e41ceee848a5a11fef02f07965b0" Name="Diagram1" ZoomLevel="47">
+        <EntityTypeShape EntityType="Kutuphane_Bilgi_SistemiModel.CEZA" Width="1.5" PointX="3.75" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Kutuphane_Bilgi_SistemiModel.CEZA_UYE" Width="1.5" PointX="5.25" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="Kutuphane_Bilgi_SistemiModel.FAVORI" Width="1.5" PointX="5.25" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="Kutuphane_Bilgi_SistemiModel.ISTEK" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Kutuphane_Bilgi_SistemiModel.KITAP" Width="1.5" PointX="8.25" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Kutuphane_Bilgi_SistemiModel.KUTUPHANE" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Kutuphane_Bilgi_SistemiModel.TARIH" Width="1.5" PointX="6" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Kutuphane_Bilgi_SistemiModel.UYE" Width="1.5" PointX="3" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Kutuphane_Bilgi_SistemiModel.YORUM" Width="1.5" PointX="10.5" PointY="9.875" IsExpanded="true" />
+        <AssociationConnector Association="Kutuphane_Bilgi_SistemiModel.FK_CEZA_UYE_CEZA" ManuallyRouted="false" />
+        <AssociationConnector Association="Kutuphane_Bilgi_SistemiModel.FK_TARIH_CEZA" ManuallyRouted="false" />
+        <AssociationConnector Association="Kutuphane_Bilgi_SistemiModel.FK_CEZA_UYE_UYE" ManuallyRouted="false" />
+        <AssociationConnector Association="Kutuphane_Bilgi_SistemiModel.FK_FAVORI_KITAP" ManuallyRouted="false" />
+        <AssociationConnector Association="Kutuphane_Bilgi_SistemiModel.FK_FAVORI_UYE" ManuallyRouted="false" />
+        <AssociationConnector Association="Kutuphane_Bilgi_SistemiModel.FK_KITAP_TARIH" ManuallyRouted="false" />
+        <AssociationConnector Association="Kutuphane_Bilgi_SistemiModel.FK_KITAP_UYE" ManuallyRouted="false" />
+        <AssociationConnector Association="Kutuphane_Bilgi_SistemiModel.FK_YORUM_KITAP" ManuallyRouted="false" />
+        <AssociationConnector Association="Kutuphane_Bilgi_SistemiModel.FK_YORUM_UYE" ManuallyRouted="false" />
+        <AssociationConnector Association="Kutuphane_Bilgi_SistemiModel.KITAP_KUTUPHANE" ManuallyRouted="false" />
+        <AssociationConnector Association="Kutuphane_Bilgi_SistemiModel.KUTUPHANE_ISTEK" ManuallyRouted="false" />
+        <AssociationConnector Association="Kutuphane_Bilgi_SistemiModel.UYE_ISTEK" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

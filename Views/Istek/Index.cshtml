@@ -1,0 +1,30 @@
+﻿@using KutuphaneBS.Models.Entity
+@model List<ISTEK>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>İstek Kitap</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>İstek Kodu</th>
+        <th>Kitap Adı</th>
+        <th>Yazarı</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var istek in Model)
+    {
+        <tr>
+            <td>@istek.Istek_Kitap_Adi</td>
+            <td>@istek.Istek_Kitap_Yazari</td>
+            <td><a href="/Istek/IstekSil/@istek.Istek_ID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Istek/IstekGuncelle/@istek.Istek_ID" class="btn btn-success">Güncelle</a></td>
+
+        </tr>
+    }
+</table>
+<a href="/Istek/IstekEkle/" class="btn btn-primary">Yeni İstek Ekle</a>
+

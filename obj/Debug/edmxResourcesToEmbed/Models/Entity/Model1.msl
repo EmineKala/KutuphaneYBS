@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Kutuphane_Bilgi_SistemiModelStoreContainer" CdmEntityContainer="Kutuphane_Bilgi_SistemiEntities">
+    <EntitySetMapping Name="CEZA">
+      <EntityTypeMapping TypeName="Kutuphane_Bilgi_SistemiModel.CEZA">
+        <MappingFragment StoreEntitySet="CEZA">
+          <ScalarProperty Name="Ceza_ID" ColumnName="Ceza_ID" />
+          <ScalarProperty Name="Ceza_Tutari" ColumnName="Ceza_Tutari" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CEZA_UYE">
+      <EntityTypeMapping TypeName="Kutuphane_Bilgi_SistemiModel.CEZA_UYE">
+        <MappingFragment StoreEntitySet="CEZA_UYE">
+          <ScalarProperty Name="Ceza_ID" ColumnName="Ceza_ID" />
+          <ScalarProperty Name="Uye_ID" ColumnName="Uye_ID" />
+          <ScalarProperty Name="Odeme_Durumu" ColumnName="Odeme_Durumu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FAVORI">
+      <EntityTypeMapping TypeName="Kutuphane_Bilgi_SistemiModel.FAVORI">
+        <MappingFragment StoreEntitySet="FAVORI">
+          <ScalarProperty Name="Favori_ID" ColumnName="Favori_ID" />
+          <ScalarProperty Name="Kitap_ID" ColumnName="Kitap_ID" />
+          <ScalarProperty Name="Uye_ID" ColumnName="Uye_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ISTEK">
+      <EntityTypeMapping TypeName="Kutuphane_Bilgi_SistemiModel.ISTEK">
+        <MappingFragment StoreEntitySet="ISTEK">
+          <ScalarProperty Name="Istek_ID" ColumnName="Istek_ID" />
+          <ScalarProperty Name="Istek_Kitap_Adi" ColumnName="Istek_Kitap_Adi" />
+          <ScalarProperty Name="Istek_Kitap_Yazari" ColumnName="Istek_Kitap_Yazari" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KITAP">
+      <EntityTypeMapping TypeName="Kutuphane_Bilgi_SistemiModel.KITAP">
+        <MappingFragment StoreEntitySet="KITAP">
+          <ScalarProperty Name="Kitap_ID" ColumnName="Kitap_ID" />
+          <ScalarProperty Name="Kitap_Adi" ColumnName="Kitap_Adi" />
+          <ScalarProperty Name="Kitap_Turu" ColumnName="Kitap_Turu" />
+          <ScalarProperty Name="Kitap_Yazari" ColumnName="Kitap_Yazari" />
+          <ScalarProperty Name="Kitap_YayinEvi" ColumnName="Kitap_YayinEvi" />
+          <ScalarProperty Name="Kitap_TedarikciTuru" ColumnName="Kitap_TedarikciTuru" />
+          <ScalarProperty Name="Kitap_Alinabilirlik" ColumnName="Kitap_Alinabilirlik" />
+          <ScalarProperty Name="Tarih_ID" ColumnName="Tarih_ID" />
+          <ScalarProperty Name="Uye_ID" ColumnName="Uye_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KUTUPHANE">
+      <EntityTypeMapping TypeName="Kutuphane_Bilgi_SistemiModel.KUTUPHANE">
+        <MappingFragment StoreEntitySet="KUTUPHANE">
+          <ScalarProperty Name="Kutuphane_ID" ColumnName="Kutuphane_ID" />
+          <ScalarProperty Name="Kutuphane_Adi" ColumnName="Kutuphane_Adi" />
+          <ScalarProperty Name="Kutuphane_Adres" ColumnName="Kutuphane_Adres" />
+          <ScalarProperty Name="Kutuphane_Telefon" ColumnName="Kutuphane_Telefon" />
+          <ScalarProperty Name="Kutuphane_Websitesi" ColumnName="Kutuphane_Websitesi" />
+          <ScalarProperty Name="Kutuphane_Email" ColumnName="Kutuphane_Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TARIH">
+      <EntityTypeMapping TypeName="Kutuphane_Bilgi_SistemiModel.TARIH">
+        <MappingFragment StoreEntitySet="TARIH">
+          <ScalarProperty Name="Tarih_ID" ColumnName="Tarih_ID" />
+          <ScalarProperty Name="Tarih_OduncTarihi" ColumnName="Tarih_OduncTarihi" />
+          <ScalarProperty Name="Tarih_TeslimTarihi" ColumnName="Tarih_TeslimTarihi" />
+          <ScalarProperty Name="Tarih_TeslimAlinan" ColumnName="Tarih_TeslimAlinan" />
+          <ScalarProperty Name="Tarih_Gecikme" ColumnName="Tarih_Gecikme" />
+          <ScalarProperty Name="Ceza_ID" ColumnName="Ceza_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UYE">
+      <EntityTypeMapping TypeName="Kutuphane_Bilgi_SistemiModel.UYE">
+        <MappingFragment StoreEntitySet="UYE">
+          <ScalarProperty Name="Uye_ID" ColumnName="Uye_ID" />
+          <ScalarProperty Name="Uye_Adi" ColumnName="Uye_Adi" />
+          <ScalarProperty Name="Uye_Soyadi" ColumnName="Uye_Soyadi" />
+          <ScalarProperty Name="Uye_Email" ColumnName="Uye_Email" />
+          <ScalarProperty Name="Uye_Password" ColumnName="Uye_Password" />
+          <ScalarProperty Name="Uye_Telefon" ColumnName="Uye_Telefon" />
+          <ScalarProperty Name="Uye_Adres" ColumnName="Uye_Adres" />
+          <ScalarProperty Name="Uye_Egitim" ColumnName="Uye_Egitim" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="YORUM">
+      <EntityTypeMapping TypeName="Kutuphane_Bilgi_SistemiModel.YORUM">
+        <MappingFragment StoreEntitySet="YORUM">
+          <ScalarProperty Name="Yorum_ID" ColumnName="Yorum_ID" />
+          <ScalarProperty Name="Kitap_ID" ColumnName="Kitap_ID" />
+          <ScalarProperty Name="Uye_ID" ColumnName="Uye_ID" />
+          <ScalarProperty Name="Yorum_Icerik" ColumnName="Yorum_Icerik" />
+          <ScalarProperty Name="Yorum_Tarih" ColumnName="Yorum_Tarih" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="KITAP_KUTUPHANE" TypeName="Kutuphane_Bilgi_SistemiModel.KITAP_KUTUPHANE" StoreEntitySet="KITAP_KUTUPHANE">
+      <EndProperty Name="KITAP">
+        <ScalarProperty Name="Kitap_ID" ColumnName="Kıtap_ID" />
+      </EndProperty>
+      <EndProperty Name="KUTUPHANE">
+        <ScalarProperty Name="Kutuphane_ID" ColumnName="Kutuphane_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="KUTUPHANE_ISTEK" TypeName="Kutuphane_Bilgi_SistemiModel.KUTUPHANE_ISTEK" StoreEntitySet="KUTUPHANE_ISTEK">
+      <EndProperty Name="ISTEK">
+        <ScalarProperty Name="Istek_ID" ColumnName="Istek_ID" />
+      </EndProperty>
+      <EndProperty Name="KUTUPHANE">
+        <ScalarProperty Name="Kutuphane_ID" ColumnName="Kutuphane_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="UYE_ISTEK" TypeName="Kutuphane_Bilgi_SistemiModel.UYE_ISTEK" StoreEntitySet="UYE_ISTEK">
+      <EndProperty Name="ISTEK">
+        <ScalarProperty Name="Istek_ID" ColumnName="Istek_ID" />
+      </EndProperty>
+      <EndProperty Name="UYE">
+        <ScalarProperty Name="Uye_ID" ColumnName="Uye_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,47 @@
+﻿@using KutuphaneBS.Models.Entity
+@model List<KITAP>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Kitaplarımız</h2>
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>Kitap Kodu</th>
+        <th>Kitap Adı</th>
+        <th>Türü</th>
+        <th>Yazarı</th>
+        <th>Yayınevi</th>
+        <th>Tedarik Türü</th>
+        <th>Alınabilirlik</th>
+        <th>Tarih</th>
+        <th>Üye</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+        
+            @foreach (var ktp in Model)
+            {
+                <tr>
+                    <td>@ktp.Kitap_ID</td>
+                    <td>@ktp.Kitap_Adi</td>
+                    <td>@ktp.Kitap_Turu</td>
+                    <td>@ktp.Kitap_Yazari</td>
+                    <td>@ktp.Kitap_YayinEvi</td>
+                    <td>@ktp.Kitap_TedarikciTuru</td>
+                    <td>@ktp.Kitap_Alinabilirlik</td>
+                    <td>@ktp.Tarih_ID</td>
+                    <td>@ktp.Uye_ID</td>
+                    
+                    <td><a href="/Kitap/KitapSil/@ktp.Kitap_ID" class="btn btn-danger">Sil</a></td>
+                    <td><a href="/Kitap/KitapGuncelle/@ktp.Kitap_ID" class="btn btn-success">Güncelle</a></td>
+
+                </tr>
+                }
+       
+</table>
+<a href="/Kitap/KitapEkle/" class="btn btn-primary">Yeni Kitap Ekle</a>
+
+

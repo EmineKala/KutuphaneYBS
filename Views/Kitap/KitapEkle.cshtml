@@ -1,0 +1,42 @@
+﻿@model KutuphaneBS.Models.Entity.KITAP
+@{
+    ViewBag.Title = "KitapEkle";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Kitap Ekle</h2>
+
+<form class="form-group" method="post">
+    <div></div>
+    <div style="margin-top:15px">
+
+        <label>Kitap Adı</label>
+        <input type="text" class="form-control" name="Kitap_Adi"
+
+        <label>Türü</label>
+        <input type="text" class="form-control" name="Kitap_Turu"
+
+        <label>Yazarı</label>
+        <input type="text" class="form-control" name="Kitap_Yazari"
+
+        <label>Yayınevi</label>
+        <input type="text" class="form-control" name="Kitap_YayinEvi"
+
+        <label>Tedarik Türü</label>
+        <input type="text" class="form-control" name="Kitap_TedarikciTuru"
+
+        @*<label>Alınabilirlik</label>
+        <input type="text" class="form-control" name="Kitap_Alinabilirlik"*@
+
+        @*<label>Tarih</label>
+        <input type="text" class="form-control" name="Tarih_ID"  
+               
+        <label>Üye</label>
+        <input type="text" class="form-control" name="Uye_ID"*@
+
+
+    </div>
+    <div style="margin-top:15px"
+         <button class="btn btn-info" id="Btn1">Yeni Kitap Ekle</button>
+    </div>
+</form>

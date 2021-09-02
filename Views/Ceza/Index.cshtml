@@ -1,0 +1,29 @@
+﻿@using KutuphaneBS.Models.Entity
+@model List <CEZA>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Ceza Yönergesi</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Ceza Kodu</th>
+        <th>Tutar</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach(var cz in Model)
+    {
+        <tr>
+            <td>@cz.Ceza_ID</td>
+            <td>@cz.Ceza_Tutari</td>
+            <td><a href="/Ceza/CezaTipiSil/@cz.Ceza_ID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Ceza/CezaTipiGüncelle/@cz.Ceza_ID" class="btn btn-success">Güncelle</a></td>
+
+        </tr>
+    }
+
+</table>
+<a href="/Ceza/CezaTipiEkle/" class="btn btn-primary">Yeni Ceza Tipi Ekle</a>

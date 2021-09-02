@@ -1,0 +1,38 @@
+﻿@using KutuphaneBS.Models.Entity
+@model List<KUTUPHANE>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Kütüphanelerimiz</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>Kütüphane Kodu</th>
+        <th>Kütüphane Adı</th>
+        <th>Adres</th>
+        <th>Telefon</th>
+        <th>Web Sitesi</th>
+        <th>E-mail</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+
+        @foreach (var ktp in Model)
+        {
+        <tr>
+            <td>@ktp.Kutuphane_ID</td>
+            <td>@ktp.Kutuphane_Adi</td>
+            <td>@ktp.Kutuphane_Adres</td>
+            <td>@ktp.Kutuphane_Telefon</td>
+            <td>@ktp.Kutuphane_Websitesi</td>
+            <td>@ktp.Kutuphane_Email</td>
+            
+
+            <td><a href="/Kutuphane/KutuphaneSil/@ktp.Kutuphane_ID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Kutuphane/KutuphaneGuncelle/@ktp.Kutuphane_ID" class="btn btn-success">Güncelle</a></td>
+
+        </tr>
+    }
+
+    </table>
+    <a href="/Kutuphane/KutuphaneEkle/" class="btn btn-primary">Yeni Kütüphane Ekle</a>

@@ -1,0 +1,43 @@
+﻿@using KutuphaneBS.Models.Entity
+@model List<UYE>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Üyelik İşlemleri</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>Üye ID</th>
+        <th>Ad</th>
+        <th>Soyad</th>
+        <th>E-mail</th>
+        <th>Şifre</th>
+        <th>Teleon</th>
+        <th>Adres</th>
+        <th>Eğitim</th>
+        
+        <th>Sil</th>
+        <th>Güncelle</th>
+
+        @foreach (var uye in Model)
+        {
+        <tr>
+            <td>@uye.Uye_ID</td>
+            <td>@uye.Uye_Adi</td>
+            <td>@uye.Uye_Soyadi</td>
+            <td>@uye.Uye_Email</td>
+            <td>@uye.Uye_Password</td>
+            <td>@uye.Uye_Telefon</td>
+            <td>@uye.Uye_Adres</td>
+            <td>@uye.Uye_Egitim</td>
+            
+
+            <td><a href="/Uye/UyeSil/@uye.Uye_ID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Uye/UyeGuncelle/@uye.Uye_ID" class="btn btn-success">Güncelle</a></td>
+
+        </tr>
+    }
+
+    </table>
+    <a href="/Uye/UyeEkle/" class="btn btn-primary">Yeni Üye Ekle</a>
